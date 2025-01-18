@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('red-texture-high-quality-free-photo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ }
+ .container {
+    text-align: center;
+    background-color: #581313; /* Lighter red */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+ }
+ .logo img {
+    width: 150px;
+    margin-bottom: 20px;
+ }
+ h1 {
+    color: #ffb7b7; 
+    font-family: sans-serif;
+    margin-bottom: 10px;
+ }
+ h3 {
+    color: #ffd4d4; 
+    font-family: garamond;
+    margin-bottom: 30px;
+ }
+ .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+ form input {
+    padding: 10px;
+    border: 1px solid #b82929e8; 
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+ }
+ form input:focus {
+    border-color: #ff0000; 
+ }
+ button {
+    padding: 10px;
+    background-color: #b30000; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+ }
+ button:hover {
+    background-color: #e68181; 
+ }
+ .create-account {
+    background-color: #b30000; 
+    color: #f7f2f2; 
+ }
+ a {
+    color: #b30000; 
+    text-decoration: none;
+    font-size: 12px;
+ }
+ a:hover {
+    text-decoration: underline;
+ }
+ .links {
+    margin-top: 20px;
+    font-size: 12px;
+ }
+ hr {
+    border: 1px solid #f5d8d8; 
+    margin: 20px 0;
+ }
