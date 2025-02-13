@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TSA2-Panol</title>
+<style>
+body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 20px; 
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #eee; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease; 
+  width: 150px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #ddd; 
+}
+
+.box-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 2px solid black;
+  opacity: 0; 
+  transform: scale(0); 
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+
+.monday { background-color: purple; color: white; }
+.tuesday { background-color: pink; }
+.wednesday { background-color: blue; color: white; }
+.thursday { background-color: limegreen; }
+.friday { background-color: yellow; }
+.saturday { background-color: orange; }
+.sunday { background-color: red; color: white; }
+
+
+@keyframes popUp {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="buttons-container">
+  <button class="monday" onclick="animateBox('monday')">Monday</button>
+  <button class="tuesday" onclick="animateBox('tuesday')">Tuesday</button>
+  <button class="wednesday" onclick="animateBox('wednesday')">Wednesday</button>
+  <button class="thursday" onclick="animateBox('thursday')">Thursday</button>
+  <button class="friday" onclick="animateBox('friday')">Friday</button>
+  <button class="saturday" onclick="animateBox('saturday')">Saturday</button>
+  <button class="sunday" onclick="animateBox('sunday')">Sunday</button>
+</div>
+
+<div class="box-container">
+  <div id="animatedBox" class="box"></div>
+</div>
+
+<script>
+let box = document.getElementById('animatedBox');
+
+function animateBox(day) {
+  
+  box.style.animation = 'none'; 
+  box.offsetHeight; 
+  box.style.animation = null;
+
+  
+  box.className = `box ${day}`; 
+
+  
+  box.style.opacity = 1;
+  box.style.transform = 'scale(1)';
+  box.style.animation = 'popUp 0.5s ease'; 
+}
+</script>
+
+</body>
+</html>
