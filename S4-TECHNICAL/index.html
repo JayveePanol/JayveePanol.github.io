@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Best of Filipino Restaurant Guide</h1>
+    <div class="container">
+        <div class="menu-item" onclick="openPopup('Beef Bulalo', 'Beefbulalo.jpg')" data-label="Beef Bulalo">
+            <div class="label">Beef Bulalo</div>
+            <img src="Beefbulalo.jpg" alt="Beef Bulalo">
+        </div>
+        <div class="menu-item" onclick="openPopup('Pesto Pasta', 'chickenpestopasta-1.jpg')" data-label="Pesto Pasta">
+            <div class="label">Pesto Pasta</div>
+            <img src="chickenpestopasta-1.jpg" alt="Pesto Pasta">
+        </div>
+        <div class="menu-item" onclick="openPopup('Pancit Palabok','Pancit-Palabok-kitchenconfidante.com-2868-FEATURED-IMAGE.jpg')" data-label="Pancit Palabok">
+            <div class="label">Pancit Palabok</div>
+            <img src="Pancit-Palabok-kitchenconfidante.com-2868-FEATURED-IMAGE.jpg" alt="Pancit Palabok">
+        </div>
+        <div class="menu-item" onclick="openPopup('Mango Crepe Cake', 'mango-crepe-cake-1.jpg')" data-label="Mango Crepe Cake">
+            <div class="label">Mango Crepe Cake</div>
+            <img src="mango-crepe-cake-1.jpg" alt="Mango Crepe Cake">
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <img id="popup-img" src="" alt="">
+            <div>
+                <h2 id="popup-title"></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat, libero ut accumsan.</p>
+                <p>Address: 123 Main St, City</p>
+                <p>Category: Fine Dining</p>
+                <p>Open: 10AM - 10PM</p>
+            </div>
+        </div>
+        <div class="close" onclick="closePopup()">Main Menu</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

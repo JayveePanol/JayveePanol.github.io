@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url(RestoBG.jpg) no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+h1 {
+    color: white; 
+    font-family: "Georgia", serif; 
+    font-size: 36px; 
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+.menu-item {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-item .label {
+    background: yellow;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.menu-item:hover::after {
+    content: attr(data-label);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+}
+
+.popup-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    display: flex;
+}
+
+.popup-content img {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.close {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    background: yellow;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
