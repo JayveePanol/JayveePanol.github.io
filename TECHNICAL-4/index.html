@@ -9,14 +9,33 @@
         background: url(RestoBG.jpg) no-repeat center center fixed;
         background-size: cover;
         text-align: center;
+        margin: 0;
+        padding: 0;
       }
+
       h1 {
-        color: white; 
-        font-family: "Georgia", serif; 
-        font-size: 36px; 
+        color: white;
+        font-family: "Georgia", serif;
+        font-size: 36px;
         font-weight: bold;
-        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
         margin-top: 20px;
+      }
+
+      .main-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .main-menu button {
+        background: yellow;
+        border: none;
+        padding: 10px 15px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       }
 
       .container {
@@ -25,38 +44,35 @@
         gap: 20px;
         padding-top: 50px;
       }
+
       .menu-item {
         width: 200px;
         height: 300px;
         position: relative;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
+
       .menu-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 10px;
       }
+
       .menu-item .label {
         background: yellow;
         padding: 5px;
         text-align: center;
         font-weight: bold;
-        position: absolute;
-        top: 0;
         width: 100%;
+        position: relative;
+        top: 0;
+        border-radius: 5px 5px 0 0;
       }
-      .menu-item:hover::after {
-        content: attr(data-label);
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 5px;
-        border-radius: 5px;
-        white-space: nowrap;
-      }
+
       .popup {
         display: none;
         position: fixed;
@@ -71,6 +87,7 @@
         text-align: left;
         padding: 20px;
       }
+
       .popup-content {
         background: white;
         color: black;
@@ -79,15 +96,17 @@
         width: 70%;
         display: flex;
       }
+
       .popup-content img {
         width: 40%;
         margin-right: 20px;
+        border-radius: 10px;
       }
-      
+
       .close {
         position: fixed;
-        top: 20px; 
-        right: 20px; 
+        top: 20px;
+        right: 20px;
         background: yellow;
         padding: 10px 15px;
         cursor: pointer;
@@ -98,40 +117,25 @@
     </style>
   </head>
   <body>
+    <div class="main-menu">
+      <button onclick="goToMainMenu()">Main Menu</button>
+    </div>
+
     <h1>Best of Filipino Restaurant Guide</h1>
     <div class="container">
-      <div
-        class="menu-item"
-        onclick="openPopup('Beef Bulalo', 'bulalo2.jpg')"
-        data-label="Beef Bulalo"
-      >
+      <div class="menu-item" onclick="openPopup('Beef Bulalo', 'bulalo2.jpg')">
         <div class="label">Beef Bulalo</div>
         <img src="bulalo2.jpg" alt="Beef Bulalo" />
       </div>
-      <div
-        class="menu-item"
-        onclick="openPopup('Pesto Pasta', 'chickenpestopasta-1.jpg')"
-        data-label="Pesto Pasta"
-      >
+      <div class="menu-item" onclick="openPopup('Pesto Pasta', 'chickenpestopasta-1.jpg')">
         <div class="label">Pesto Pasta</div>
         <img src="chickenpestopasta-1.jpg" alt="Pesto Pasta" />
       </div>
-      <div
-        class="menu-item"
-        onclick="openPopup('Pancit Palabok','Pancit-Palabok-kitchenconfidante.com-2868-FEATURED-IMAGE.jpg')"
-        data-label="Pancit Palabok"
-      >
+      <div class="menu-item" onclick="openPopup('Pancit Palabok', 'Pancit-Palabok.jpg')">
         <div class="label">Pancit Palabok</div>
-        <img
-          src="Pancit-Palabok-kitchenconfidante.com-2868-FEATURED-IMAGE.jpg"
-          alt="Pancit Palabok"
-        />
+        <img src="Pancit-Palabok.jpg" alt="Pancit Palabok" />
       </div>
-      <div
-        class="menu-item"
-        onclick="openPopup('Mango Crepe Cake', 'mango-crepe-cake-1.jpg')"
-        data-label="Mango Crepe Cake"
-      >
+      <div class="menu-item" onclick="openPopup('Mango Crepe Cake', 'mango-crepe-cake-1.jpg')">
         <div class="label">Mango Crepe Cake</div>
         <img src="mango-crepe-cake-1.jpg" alt="Mango Crepe Cake" />
       </div>
@@ -143,19 +147,14 @@
         <div>
           <h2 id="popup-title"></h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            volutpat, libero ut accumsan. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quas consequuntur, iste dolores, doloribus
-            expedita impedit libero quaerat reprehenderit excepturi et omnis
-            neque. Nesciunt voluptas corrupti dolorum quod tempora veritatis
-            molestiae.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat, libero ut accumsan.
           </p>
           <p>Address: 123 Main St, City</p>
           <p>Category: Fine Dining</p>
           <p>Open: 10AM - 10PM</p>
         </div>
       </div>
-      <div class="close" onclick="closePopup()">Main Menu</div>
+      <div class="close" onclick="closePopup()">Close</div>
     </div>
 
     <script>
@@ -164,8 +163,13 @@
         document.getElementById("popup-img").src = imgSrc;
         document.getElementById("popup").style.display = "flex";
       }
+
       function closePopup() {
         document.getElementById("popup").style.display = "none";
+      }
+
+      function goToMainMenu() {
+        alert("Redirecting to the Main Menu...");
       }
     </script>
   </body>
